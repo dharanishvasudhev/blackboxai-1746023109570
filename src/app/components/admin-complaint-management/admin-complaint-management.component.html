@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Admin Complaint Management</h2>
+  <ul>
+    <li *ngFor="let complaint of complaints" (click)="selectComplaint(complaint.id)" [class.selected]="complaint.id === selectedComplaintId">
+      <strong>{{ complaint.user }}:</strong> {{ complaint.text }} <br />
+      Status: {{ complaint.status }} <br />
+      <button (click)="acceptComplaint(complaint.id); $event.stopPropagation()">Accept</button>
+      <button (click)="declineComplaint(complaint.id); $event.stopPropagation()">Decline</button>
+    </li>
+  </ul>
+
+  <div *ngIf="selectedComplaintId !== null" class="reply-section">
+    <h3>Reply to Complaint ID {{ selectedComplaintId }}</h3>
+    <textarea [(ngModel)]="replyText" rows="4"></textarea>
+    <button (click)="replyToComplaint()">Send Reply</button>
+  </div>
+</div>
