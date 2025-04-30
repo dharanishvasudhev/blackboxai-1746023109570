@@ -1,0 +1,8 @@
+<div class="container">
+  <h2>Submit Your Complaint</h2>
+  <form (ngSubmit)="onSubmit()">
+    <label for="complaint">Complaint:</label>
+    <textarea id="complaint" [(ngModel)]="complaintText" name="complaint" required rows="5"></textarea>
+    <button type="submit">Submit Complaint</button>
+  </form>
+</div>
